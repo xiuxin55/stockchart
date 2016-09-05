@@ -1,0 +1,142 @@
+﻿<UserControl x:Class="WpfApplication1.UCCandle"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApplication1"
+             mc:Ignorable="d" 
+            >
+    <Grid>
+        <!--<Border  BorderThickness="1" BorderBrush="Black"  >
+
+            <local:CandleControl x:Name="candle" CrossLineControl ="{Binding Path=., ElementName=crossline }" 
+            ItemSource="{Binding MyList}" ></local:CandleControl>
+        </Border>
+        <Border  BorderThickness="1"  >
+            <local:CandleCrossLine x:Name="crossline" IsMainCrossLine="True"></local:CandleCrossLine>
+        </Border>-->
+        <local:ChartContainer >
+            <local:ChartContainer.YaxisControl>
+                <local:YaxisControl x:Name="yaxis" YValueMax="{Binding Ymax}" YValueMin="{Binding Ymin}"></local:YaxisControl>
+            </local:ChartContainer.YaxisControl>
+            <local:ChartContainer.CrossLineControl>
+                <local:CrossLine x:Name="crossline"></local:CrossLine>
+            </local:ChartContainer.CrossLineControl>
+            <local:ChartContainer.LineControls>
+                <local:LineControl YaxisControl="{Binding Path=., ElementName=yaxis }" ItemSource="{Binding MyLineList}"  IsDrawXaxis="False" IsDrawYaxis="False"  CrossLineControl ="{Binding Path=., ElementName=crossline }" >
+                    <local:LineControl.ToolTip>
+                        <ToolTip Placement="MousePoint"
+                                 VerticalOffset="12"
+                                 HorizontalOffset="5"
+             HasDropShadow="false"
+             >
+                            <Border CornerRadius="4"
+                                BorderThickness="2"
+                                BorderBrush="#ffe1a8"
+                                Background="#fff4de">
+                                <Grid Background="Transparent">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Row="0"
+                                           Grid.ColumnSpan="2"
+                                           Text="{Binding Date, Mode=OneWay}"
+                                           FontWeight="Bold"
+                                           Background="#ffe1a8" />
+
+                                    <TextBlock  Grid.Row="1" Text="值："
+                                            />
+                                    <TextBlock  Grid.Row="1"
+                                            Grid.Column="1"
+                                            Text="{Binding LineValue, StringFormat=0.00}" />
+
+                                </Grid>
+                            </Border>
+                        </ToolTip>
+
+                    </local:LineControl.ToolTip>
+                </local:LineControl>
+            </local:ChartContainer.LineControls>
+            <local:ChartContainer.CandleControls>
+                <local:CandleControl  IsMainCrossLine="true"  x:Name="candle"  YaxisControl="{Binding Path=., ElementName=yaxis }" CrossLineControl ="{Binding Path=., ElementName=crossline }"  ItemSource="{Binding MyList}"  >
+                    <local:CandleControl.ToolTip>
+                        <ToolTip Placement="MousePoint"
+             HasDropShadow="false"
+                                 VerticalOffset="12"
+                                 HorizontalOffset="5"
+             >
+                            <Border CornerRadius="4"
+                                BorderThickness="2"
+                                BorderBrush="#ffe1a8"
+                                Background="#fff4de">
+                                <Grid Background="Transparent">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Row="0"
+                                           Grid.ColumnSpan="2"
+                                           Text="{Binding Date, Mode=OneWay}"
+                                           FontWeight="Bold"
+                                           Background="#ffe1a8" />
+
+                                    <TextBlock  Grid.Row="1" Text="开盘价："
+                                            />
+                                    <TextBlock  Grid.Row="1"
+                                            Grid.Column="1"
+                                            Text="{Binding Open, StringFormat=0.00}" />
+
+                                    <TextBlock Grid.Row="2"  Text="最高价："
+                                           />
+                                    <TextBlock Grid.Row="2"
+                                           Grid.Column="1" 
+                                           Text="{Binding High, StringFormat=0.00}" />
+
+                                    <TextBlock Grid.Row="3"  Text="最低价："
+                                           />
+                                    <TextBlock Grid.Row="3"
+                                           Grid.Column="1"
+                                           Text="{Binding Low, StringFormat=0.00}" />
+
+                                    <TextBlock Grid.Row="4"  Text="收盘价："
+                                           />
+                                    <TextBlock Grid.Row="4"
+                                           Grid.Column="1"
+                                           Text="{Binding Close, StringFormat=0.00}" />
+                                </Grid>
+                            </Border>
+                        </ToolTip>
+
+                    </local:CandleControl.ToolTip>
+                </local:CandleControl>
+            </local:ChartContainer.CandleControls>
+        </local:ChartContainer>
+        <!--<local:CrossLine x:Name="crossline2"  Visibility="Hidden"></local:CrossLine>-->
+        
+    </Grid>
+</UserControl>

@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="WpfApplication1.UCBoll"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApplication1"
+             mc:Ignorable="d" 
+            >
+    <Grid>
+        <local:ChartContainer >
+            <local:ChartContainer.YaxisControl>
+                <local:YaxisControl x:Name="yaxis" YValueMax="{Binding Ymax}" YValueMin="{Binding Ymin}"></local:YaxisControl>
+            </local:ChartContainer.YaxisControl>
+            <local:ChartContainer.CrossLineControl>
+                <local:CrossLine x:Name="crossline" ></local:CrossLine>
+            </local:ChartContainer.CrossLineControl>
+            <local:ChartContainer.LineControls>
+                <local:LineControl YaxisControl="{Binding Path=., ElementName=yaxis }" ItemSource="{Binding MyLineList}"  IsDrawXaxis="False" IsDrawYaxis="False"  CrossLineControl ="{Binding Path=., ElementName=crossline }" ></local:LineControl>
+            </local:ChartContainer.LineControls>
+            <local:ChartContainer.CandleControls>
+                <local:CandleControl x:Name="candle"  YaxisControl="{Binding Path=., ElementName=yaxis }" CrossLineControl ="{Binding Path=., ElementName=crossline }"  ItemSource="{Binding MyList}"   IsBoll="True" IsDrawXaxis="True" ></local:CandleControl>
+            </local:ChartContainer.CandleControls>
+        </local:ChartContainer>
+    </Grid>
+</UserControl>
