@@ -1,6 +1,6 @@
 # stockchart
 股票图表
-
+支持多个图表重叠，并支持扩展其他图形，需继承basecontrol
 程序主界面
 ![Aaron Swartz](https://github.com/xiuxin55/stockchart/blob/master/%E5%9B%BE%E7%89%87/%E4%B8%BB%E7%95%8C%E9%9D%A2.png)
 鼠标移动至图形会显示tootip数据界面
